@@ -62,9 +62,6 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     // Convert to line protocol data
     let line_protocol_data = build_line_protocol(&game_servers);
 
-    // Print
-    println!("{}", line_protocol_data);
-
     // Send to InfluxDB
     send_to_influxdb(&config.influxdb, &line_protocol_data).await?;
 
